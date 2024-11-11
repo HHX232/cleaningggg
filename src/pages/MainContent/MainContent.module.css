@@ -1,0 +1,123 @@
+.main_content{
+   width: 100vw;
+   position: relative;
+   background-color: #FBFBFB;
+}
+.main_img{
+   width: 580px !important;
+   height: 100% !important;
+   position: absolute;
+   content: "";
+   bottom: 0;
+   right: 0;
+}
+.main_container{
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 85px 0;
+}
+.content{
+   display: flex;
+   padding: 0 10px;
+   flex-direction: column;
+
+}
+.main_title{
+   font-size: 40px;
+   max-width: 715px;
+   margin-bottom: 24px;
+}
+.main_subtitle{
+   font-size: 24px;
+   margin-bottom: 24px;
+}
+.buttons_box{
+   display: flex;
+   gap: 16px;
+   font-size: 20px;
+   font-weight:600;
+}
+.main_button{
+   padding: 14px 32px;
+   background-color: var(--accent);
+   color: #fff !important;
+   border-radius: 5px;
+}
+.main_subbutton{
+   padding: 14px 32px;
+   border-radius: 5px;
+   border: 1.5px solid #000;
+}
+@media (max-width: 1430px){
+/* .main_img{
+   position: static;
+   margin-top: 24px;
+   margin: 24px auto 0 auto;
+} */
+/* .main_container{
+   padding: 85px 0 0 0;
+} */
+ .main_title{
+   margin-right: 50%;
+ }
+}
+@media (max-width: 1130px){
+.main_img{
+   position: static;
+   margin-top: 24px;
+   margin: 24px auto 0 auto;
+}
+.main_container{
+   padding: 85px 0 0 0;
+}
+.main_title{
+   margin-right: 0;
+ }
+ .content{
+   margin: 0 auto;
+   max-width: fit-content;
+ }
+ .main_img{
+   max-width: 715px;
+   width: 100% !important;
+   aspect-ratio: 3/2;
+ }
+}
+@media (max-width: 850px){
+   .content{
+      padding: 50px 25px 0 25px;
+   }
+.main_container{
+   padding-top: 50px;
+}
+.main_title{
+   font-size: 29px;
+   margin-bottom: 24px;
+}
+.main_subtitle{
+   font-size: 21px;
+   margin-bottom: 24px;
+}
+.main_button, .main_subbutton{
+   font-size: 24px;
+}
+}
+@media (max-width: 520px){
+   .content{
+      padding: 0px 25px 0 25px;
+   }
+.main_container{
+   padding-top: 50px;
+}
+.main_title{
+   font-size: 24px;
+   margin-bottom: 24px;
+}
+.main_subtitle{
+   font-size: 16px;
+   margin-bottom: 20px;
+}
+.main_button, .main_subbutton{
+   font-size: 20px;
+}
+}
