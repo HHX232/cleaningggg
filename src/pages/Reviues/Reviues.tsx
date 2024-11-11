@@ -2,7 +2,9 @@ import style from './Reviues.module.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Image from 'next/image';
-
+import { useEffect, useId, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { Pagination } from 'swiper/modules';
 interface TDataUser  {
    name:string;
    data:string;
@@ -13,7 +15,7 @@ interface TDataUser  {
 const dataUser: TDataUser[] = [{name:"Debbie B", data:"2", text:"Nikita was very professional and did an excellent job cleaning my home. For my next cleaning appointment at the Beginning of October, I would", city:"Pittsburgh, PA", starsCount:"5"},
    {name:"Alice C", data:"3", text:"I was impressed by Alex's attention to detail during the home cleaning session. Looking forward to my next appointment in mid-October.", city:"Columbus, OH", starsCount:"5"},
 
-   {name:"Ethan D", data:"1", text:"Sarah did an amazing job cleaning my home. Can't wait for the next cleaning session in late October!", city:"Charlotte, NC", starsCount:"5"},
+   {name:"Ethan D", data:"1", text:"Sarah did an amazing job cleaning my home. Can't wait for the next cleaning session in late October!", city:"Charlotte, NC", starsCount:"4"},
    {name:"Olivia F", data:"4", text:"James provided top-notch cleaning services. Excited for the upcoming cleaning appointment at the end of October!", city:"Austin, TX", starsCount:"5"},
    {name:"Liam G", data:"5", text:"Melissa was fantastic and thorough in cleaning my home. Looking forward to the next session in early November!", city:"Denver, CO", starsCount:"5"},
    {name:"Nora H", data:"6", text:"John did an exceptional job cleaning my home. Can't wait for the next cleaning appointment in mid-November!", city:"Seattle, WA", starsCount:"5"},
@@ -25,34 +27,98 @@ const dataUser: TDataUser[] = [{name:"Debbie B", data:"2", text:"Nikita was very
    {name:"Violet O", data:"12", text:"Luna did an amazing job cleaning my home. Can't wait for the next cleaning appointment in mid-January!", city:"Boston, MA", starsCount:"5"},
 
 ]
+
 const Reviues = ()=>{
-   const globalIndex = 5
+   const midIndex = Math.ceil(dataUser .length / 2);
+   const firstHalf = dataUser .slice(0, midIndex);
+   const secondHalf = dataUser .slice(midIndex);
+
    return <section className={`${style.reviues}`}>
       <div className={`global_container`}>
       <div className={`${style.reviues__inner}`}>
          <h2 className={`${style.reviues_title}`}>Verified Customer Reviews</h2>
-         <ul className={`${style.reviues_list}`}>
-            <li className={`${style.reviues_item}`}>
-               <div className={`${style.user_box}`}>
-               <Image width={22} height={22} alt='' src={'/userIcon.svg'}/>
-               <div className={`${style.user_box_text}`}>{dataUser[0].name}</div>
-               </div>
-               <div className={`${style.stars_box_big}`}>
-                  <div className={`${style.stars_box_mini}`}>
-                     {Array.from({ length: Number(dataUser[globalIndex].starsCount) }, (_, index) => (
-      <Image width={24} height={24} alt='' src={'/fullstar.svg'}/>
-    ))}
-                  </div>
-                  <div className={`${style.stars_data}`}>{dataUser[0].data}</div>
-               </div>
-               <p className={`${style.item_text}`}></p>
-               <p className={`${style.item_city}`}></p>
-            </li>
+         <ul className={`${style.reviues_list} ${style.reviues_list_first}`}>
+
+         {firstHalf.map((item) => (
+                    <li className={`${style.reviues_item}`} key={uuidv4()}>
+                        <div className={`${style.user_box}`}>
+                            <Image width={22} height={22} alt='' src={'/userIcon.svg'} />
+                            <div className={`${style.user_box_text}`}>{item.name}</div>
+                        </div>
+
+                        <div className={`${style.stars_box_big}`}>
+                            <div className={`${style.stars_box_mini}`}>
+                                {Array.from({ length: Math.min(Number(item.starsCount), 5) }, (_, starIndex) => (
+                                    <Image key={`full-${starIndex}`} width={24} height={24} alt='' src={'/fullstar.svg'} />
+                                ))}
+                                {Array.from({ length: Math.max(0, 5 - Number(item.starsCount)) }, (_, starIndex) => (
+                                    <Image key={`empty-${starIndex}`} width={24} height={24} alt='' src={'/notfullstar.svg'} />
+                                ))}
+                            </div>
+                            <div className={`${style.stars_data}`}>{`${item.data} days ago`}</div>
+                        </div>
+                        <p className={`${style.item_text}`}>{item.text}</p>
+                        <p className={`${style.item_city}`}>{item.city}</p>
+                    </li>
+                ))}
+            
+         </ul>
+         <ul className={`${style.reviues_list} ${style.reviues_list_second}`}>
+         {secondHalf.map((item) => (
+                    <li className={`${style.reviues_item}`} key={uuidv4()}>
+                        <div className={`${style.user_box}`}>
+                            <Image width={22} height={22} alt='' src={'/userIcon.svg'} />
+                            <div className={`${style.user_box_text}`}>{item.name}</div>
+                        </div>
+
+                        <div className={`${style.stars_box_big}`}>
+                            <div className={`${style.stars_box_mini}`}>
+                                {Array.from({ length: Math.min(Number(item.starsCount), 5) }, (_, starIndex) => (
+                                    <Image key={`full-${starIndex}`} width={24} height={24} alt='' src={'/fullstar.svg'} />
+                                ))}
+                                {Array.from({ length: Math.max(0, 5 - Number(item.starsCount)) }, (_, starIndex) => (
+                                    <Image key={`empty-${starIndex}`} width={24} height={24} alt='' src={'/notfullstar.svg'} />
+                                ))}
+                            </div>
+                            <div className={`${style.stars_data}`}>{`${item.data} days ago`}</div>
+                        </div>
+                        <p className={`${style.item_text}`}>{item.text}</p>
+                        <p className={`${style.item_city}`}>{item.city}</p>
+                    </li>
+                ))}
          </ul>
       </div>
       </div>
+
+      {/* <Swiper spaceBetween={30} slidesPerView={2} pagination={true} modules={[Pagination]} className="mySwiper">
+            {dataUser .slice(0, 4).map((item) => (
+                <SwiperSlide key={uuidv4()}> 
+                    <li className={`${style.reviues_item}`}>
+                        <div className={`${style.user_box}`}>
+                            <Image width={22} height={22} alt='' src={'/userIcon.svg'} />
+                            <div className={`${style.user_box_text}`}>{item.name}</div>
+                        </div>
+
+                        <div className={`${style.stars_box_big}`}>
+                            <div className={`${style.stars_box_mini}`}>
+                                {Array.from({ length: Math.min(Number(item.starsCount), 5) }, (_, starIndex) => (
+                                    <Image key={`full-${starIndex}`} width={24} height={24} alt='' src={'/fullstar.svg'} />
+                                ))}
+                                {Array.from({ length: Math.max(0, 5 - Number(item.starsCount)) }, (_, starIndex) => (
+                                    <Image key={`empty-${starIndex}`} width={24} height={24} alt='' src={'/notfullstar.svg'} />
+                                ))}
+                            </div>
+                            <div className={`${style.stars_data}`}>{`${item.data} days ago`}</div>
+                        </div>
+                        <p className={`${style.item_text}`}>{item.text}</p>
+                        <p className={`${style.item_city}`}>{item.city}</p>
+                    </li>
+                </SwiperSlide>
+            ))}
+        </Swiper> */}
  </section>
 }
+
 export default Reviues
 
 
