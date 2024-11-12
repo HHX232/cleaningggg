@@ -1,0 +1,122 @@
+.BookingSection {
+    position: relative;
+    width: 100%;
+    background-color: #F5F5F5;
+padding-bottom: 50px;
+padding-top: 50px;
+}
+.submitButton{
+    width: 100%;
+    background-color: var(--accent);
+    color: #ffffff !important;
+    font-size: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 50px;
+    
+}
+.BookingSection__container {
+    position: relative;
+    width: 100%;
+    max-width: calc(1200px + 43px * 2);
+    margin: 0 auto;
+    
+}
+
+.BookingSection__title {
+    width: 100%;
+    max-width: 696px;
+    text-align: center;
+    padding: 0 43px;
+}
+
+.BookingSection__title > h2 {
+    font-size: 40px;
+}
+
+.BookingSection__subtitle {
+    width: 100%;
+    max-width: 696px;
+    text-align: center;
+    margin-top: 10px;
+    padding: 0 43px;
+}
+
+.BookingSection__subtitle > p {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.BookingSection__form__container {
+    display: grid;
+    grid-template-columns: 696px 1fr;
+    gap: 40px;
+    width: 100%;
+    height: fit-content;
+    
+    margin-top: 24px;
+}
+
+.BookingSection__form__left {
+    width: 100%;
+    max-width: 696px;
+    background-color: #ffffff;
+    padding: 20px 43px;
+    border-radius: 5px;
+}
+
+.form__left__title {
+    width: 100%;
+    text-align: center;
+}
+
+.form__left__title > h2 {
+    font-size: 40px;
+}
+
+.form__left__subtitle {
+    width: 100%;
+    text-align: center;
+}
+
+.form__left__subtitle > p {
+    font-size: 16px;
+}
+
+.arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  padding: 0 0 24px 0;
+}
+.arrow_first{
+    padding: 24px 0;
+}
+
+.BookingSection__form__right {
+    width: 100%;
+    max-width: 696px;
+    max-height: fit-content;
+    gap: 22px;
+    display: flex;
+    flex-direction: column;
+    background-color: #F5F5F5;
+    /* padding:0 43px 20px 43px; */
+}
+
+@media (max-width:1100px) {
+    .BookingSection__form__container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+    .BookingSection__title, .BookingSection__subtitle{
+        margin: 0 auto;
+        margin-bottom: 40px;
+    }
+.BookingSection__form__left{
+    padding: 20px;
+}
+}

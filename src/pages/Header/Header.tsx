@@ -37,7 +37,7 @@ export function TemporaryDrawer() {
       
       <List>
         {['About', 'Advantges', 'How we Work', 'FAQ','Reviews'].map((text, index) => (
-          <a href={`${text}`}>
+          <a key={`${index}-link${index}`} href={`${text}`}>
           <ListItem key={text} disablePadding>
             <ListItemButton>
 
@@ -90,19 +90,19 @@ const Header = ()=>{
       
     <div className={`${style.header__inner}`}>
       <ul className={`${style.header_list}`}>
-        <li className={`${style.header_item}`}>
+        <li key={1} className={`${style.header_item}`}>
           <a href="#" className={`${style.header_tag_link}`}>About</a>
         </li>
-        <li className={`${style.header_item}`}>
+        <li key={2} className={`${style.header_item}`}>
           <a href="#" className={`${style.header_tag_link}`}>Advantges</a>
         </li>
-        <li className={`${style.header_item}`}>
+        <li key={3} className={`${style.header_item}`}>
           <a href="#" className={`${style.header_tag_link}`}>How we Work</a>
         </li>
-        <li className={`${style.header_item}`}>
+        <li key={4} className={`${style.header_item}`}>
           <a href="#" className={`${style.header_tag_link}`}>FAQ</a>
         </li>
-        <li className={`${style.header_item}`}>
+        <li key={5} className={`${style.header_item}`}>
           <a href="#" className={`${style.header_tag_link}`}>Reviews</a>
         </li>
       </ul>

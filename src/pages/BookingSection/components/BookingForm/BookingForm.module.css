@@ -1,0 +1,15 @@
+.BookingForm {
+    width: 100%;
+    height: fit-content;
+}
+
+.BookingForm > .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+@media (max-width:570px){
+   .BookingForm > .form{
+     grid-template-columns: 1fr;
+   } 
+}

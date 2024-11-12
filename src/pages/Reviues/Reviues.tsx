@@ -1,10 +1,11 @@
 import style from './Reviues.module.css'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+import { Swiper, SwiperSlide, Swiper as SwiperClass } from 'swiper/react';
 import Image from 'next/image';
 import { useEffect, useId, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 interface TDataUser  {
    name:string;
    data:string;
@@ -33,6 +34,17 @@ const Reviues = ()=>{
    const firstHalf = dataUser .slice(0, midIndex);
    const secondHalf = dataUser .slice(midIndex);
 
+   const handleBulletStyles = (swiper: typeof SwiperClass) => {
+      const bullets = document.querySelectorAll<HTMLSpanElement>('.swiper-pagination-bullet');
+      bullets.forEach(bullet => {
+          bullet.style.backgroundColor = bullet.classList.contains('swiper-pagination-bullet-active')
+              ? '#555555'
+              : '#D9D9D9';
+          bullet.style.opacity = '1';
+      });
+  };
+
+    
    return <section className={`${style.reviues}`}>
       <div className={`global_container`}>
       <div className={`${style.reviues__inner}`}>
@@ -89,11 +101,19 @@ const Reviues = ()=>{
          </ul>
       </div>
       </div>
-
-      {/* <Swiper spaceBetween={30} slidesPerView={2} pagination={true} modules={[Pagination]} className="mySwiper">
+<div className={`${style.swiper_box}`}>
+      <Swiper spaceBetween={30} slidesPerView={'auto'} centeredSlides={true} onSwiper={(swiper:any) => handleBulletStyles(swiper)}
+            onSlideChange={(swiper:any) => handleBulletStyles(swiper)}
+            pagination={{
+                clickable: true,
+                renderBullet: (index, className) => (
+                    `<span class="${className}" style="width: 12px; height: 12px; border-radius: 50%; margin: 0 7px;"></span>`
+                ),
+            }}
+        modules={[Pagination]} className={`mySwiper`}>
             {dataUser .slice(0, 4).map((item) => (
-                <SwiperSlide key={uuidv4()}> 
-                    <li className={`${style.reviues_item}`}>
+                <SwiperSlide className={`${style.swiper_slide_box}`} key={uuidv4()}> 
+                    <li className={`${style.reviues_item} ${style.reviues_item_slider}`}>
                         <div className={`${style.user_box}`}>
                             <Image width={22} height={22} alt='' src={'/userIcon.svg'} />
                             <div className={`${style.user_box_text}`}>{item.name}</div>
@@ -111,26 +131,14 @@ const Reviues = ()=>{
                             <div className={`${style.stars_data}`}>{`${item.data} days ago`}</div>
                         </div>
                         <p className={`${style.item_text}`}>{item.text}</p>
-                        <p className={`${style.item_city}`}>{item.city}</p>
+                        <p className={`${style.item_city} ${style.item_city_slider}`}>{item.city}</p>
                     </li>
                 </SwiperSlide>
             ))}
-        </Swiper> */}
+        </Swiper>
+        </div>
  </section>
 }
 
 export default Reviues
-
-
-    {/* <Swiper
-   spaceBetween={50}
-   slidesPerView={3}
-   onSlideChange={() => console.log('slide change')}
-   onSwiper={(swiper) => console.log(swiper)}
- >
-   <SwiperSlide>Slide 1</SwiperSlide>
-   <SwiperSlide>Slide 2</SwiperSlide>
-   <SwiperSlide>Slide 3</SwiperSlide>
-   <SwiperSlide>Slide 4</SwiperSlide>
-  
- </Swiper> */}
+    

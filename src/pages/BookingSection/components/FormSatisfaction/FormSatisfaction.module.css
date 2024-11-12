@@ -1,0 +1,32 @@
+.satic_box {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 13px 40px 13px;
+  max-width: 463px;
+  border-radius: 5px;
+  max-height: 45%;
+  background-color: #fff;
+}
+.satic_box_list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.satic_item {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.satic_item_title {
+  font-size: 16px;
+  font-weight: 500;
+}
+.satic_item_text {
+  font-size: 16px;
+  font-weight: 300;
+}
+@media (max-width: 1100px) {
+  .satic_box {
+    display: none;
+  }
+}

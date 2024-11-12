@@ -1,0 +1,78 @@
+.booking_sum_box{
+   display: flex;
+   flex-direction: column;
+   padding: 20px 20px 27px 20px;
+   border-radius: 5px;
+   max-width: 463px;
+   background-color: #ffffff;
+}
+.booking_title{
+   text-align: center;
+   font-size: 40px;
+   padding-bottom: 24px;
+   border-bottom: 2px solid #E3E3E3;
+   margin-bottom: 24px;
+}
+.booking_checks{
+   display: flex;
+   flex-direction: column;
+   gap: 26px;
+   padding-bottom: 24px;
+   border-bottom: 2px solid #E3E3E3;
+   margin-bottom: 24px;
+}
+.booking_checks_item{
+   display: flex;
+   align-items: center;
+   gap: 16px;
+   font-size: 16px;
+   color: #9E9E9E;
+   font-weight: 500;
+}
+.icon_svg{
+   width: 24px !important;
+   height: 24px !important;
+}
+.booking_prices{
+   margin-bottom: 24px;
+   padding-bottom: 24px;
+   border-bottom: 2px solid #E3E3E3;
+   display: flex;
+flex-direction: column;
+gap: 24px;
+}
+.booking_prices_item{
+   display: flex;
+   width: 100%;
+   justify-content: space-between;
+}
+.booking_prices_item_text{
+   font-size: 16px;
+   font-weight: 500;
+}
+.booking_prices_item_price{
+   color: #767676;
+   font-size: 16px;
+   font-weight: 500;
+}
+.booking_total{
+   display: flex;
+   /* justify-content: space-between; */
+   align-items: center;
+}
+.booking_total_text{
+   width: 50%;
+   font-weight: 500;
+   font-size: 16px;
+
+}
+.booking_total_price{
+   font-size: 40px;
+   font-weight: 500;
+}
+@media (max-width:1100px) {
+   .booking_sum_box{
+      max-width: none;
+ 
+   }
+}

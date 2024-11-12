@@ -185,3 +185,20 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+/* Calendar */
+
+:root {
+  /* colors */
+  --color-text: #000000;
+  --color-placeholder: #B3B3B3;
+  --color-additional: #54AD36;
+  --color-additional7: rgba(84, 173, 54, 0.2);
+  --background-color-calendar: #FFFFFF;
+  --background-color-calendar-header: #FFFFFF;
+
+  /* images */
+  --images-arrow: url('../images/arrow.svg');
+  /* spacing */
+  /* text */
+}

@@ -1,6 +1,6 @@
 .reviues{
    background-color: #F5F5F5;
-   
+
 }
 .reviues__inner{
    display: flex;
@@ -62,6 +62,36 @@
 .reviues_list_first{
    margin-bottom: 24px !important;
 }
+.swiper{
+ display: none;  
+
+}
+.reviues_item_slider{
+   min-height: 256px;
+   max-width: 280px;
+   margin-bottom: 50px;
+}
+.swiper_slide_box{
+   max-width: 280px;
+
+   /* color:red !important; */
+}
+.item_city_slider{
+   margin-top: auto;
+}
+.mySwiper .swiper-pagination-bullet {
+   background-color: #D9D9D9;
+   opacity: 1;
+}
+
+/* Стили для активной точки */
+.mySwiper .swiper-pagination-bullet-active {
+   background-color: #555555;
+   opacity: 1;
+}
+.swiper_box{
+   display: none;
+}
 @media (max-width:1190px) {
    .reviues_list_second{
       display: none;
@@ -71,4 +101,8 @@
    .reviues_list_first{
       display: none;
    }
+   .swiper_box{
+      display: block;  
+
+     }
 }

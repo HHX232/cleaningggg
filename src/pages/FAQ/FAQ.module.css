@@ -1,0 +1,31 @@
+.faq_inner{
+   display: flex;
+   padding: 50px 5px;
+}
+.faq_title{
+   font-size: 40px;
+   width: 50%;
+   text-align: center;
+}
+.faq_content{
+   width: 50%;
+}
+.list_title{
+   padding-bottom: 10px;
+}
+.accListItem{
+   list-style:disc;
+   margin-left: 25px;
+}
+@media (max-width:1100px) {
+   .faq_inner{
+      flex-direction: column;
+      align-items: center;
+   }
+   .faq_content{
+      min-width:320px;
+      max-width: 660px;
+      width: 100%;
+   }
+ 
+}
